@@ -27,8 +27,8 @@ int main()
 {
     ofstream g("vt52.psf");
 
-    const int w = 18;
-    const int h = 30;
+    const int w = 16;
+    const int h = 24;
     const int n = 256;
 
     psf2_header header{
@@ -59,19 +59,10 @@ int main()
             d1 |= ((d & 0x40) ? 0x3 : 0x0) << 4;
             d1 |= ((d & 0x80) ? 0x3 : 0x0) << 6;
 
-            g << static_cast<char>(d1) << static_cast<char>(d0) << static_cast<char>(0);
-            g << static_cast<char>(d1) << static_cast<char>(d0) << static_cast<char>(0);
-            g << static_cast<char>(d1) << static_cast<char>(d0) << static_cast<char>(0);
+            g << static_cast<char>(0) << static_cast<char>(0);
+            g << static_cast<char>(d1) << static_cast<char>(d0);
+            g << static_cast<char>(d1) << static_cast<char>(d0);
         }
-
-        g << static_cast<char>(0) << static_cast<char>(0) << static_cast<char>(0);
-        g << static_cast<char>(0) << static_cast<char>(0) << static_cast<char>(0);
-        g << static_cast<char>(0) << static_cast<char>(0) << static_cast<char>(0);
-
-        g << static_cast<char>(0) << static_cast<char>(0) << static_cast<char>(0);
-        g << static_cast<char>(0) << static_cast<char>(0) << static_cast<char>(0);
-        g << static_cast<char>(0) << static_cast<char>(0) << static_cast<char>(0);
-
     }
 
     return 0;
